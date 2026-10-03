@@ -1,0 +1,17 @@
+# 分析产物（版权属于原厂，禁止入库）
+LiveStudent/
+app_extracted/
+app_restored/
+_tools/
+*.asar
+*.asar.unpacked/
+*.exe
+*.dll
+*.node
+*.mnn
+
+# 通用
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
