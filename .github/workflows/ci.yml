@@ -1,0 +1,19 @@
+name: ci
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: node --check
+        shell: bash
+        run: |
+          fail=0
+          for f in $(find . -name '*.js' -not -path './node_modules/*' -not -path './.git/*'); do
+            echo "check $f"
+            node --check "$f" || fail=1
+          done
+          exit $fail
